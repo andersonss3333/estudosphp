@@ -33,4 +33,35 @@ abstract class PegarDado implements pegarDados
         	echo 'Obrigatorio informar uma URL correta';
         }
     }
+
+	public final function obterDados (string $url): string
+    {
+    	$this->criarRecurso= curl_init($url);
+    	curl_setopt($this->criarRecurso, CURLOPT_BUFFERSIZE, 256);
+    	curl_setopt($this->criarRecurso, CURLOPT_SSL_VERIFYHOST, false);
+    	curl_setopt($this->criarRecurso, CURLOPT_WRITEFUNCTION, $this->baixar);
+    	curl_setopt($this->criarRecurso, CURLOPT_RETURNTRANSFER, true);
+    	
+    	return $this->baixar('','');
+    	
+    }
+    
+    private function baixar (object $curl, string $dado): string|int
+    {
+    	$baixados= strlen($this->$dados) + ($dado);
+    	
+    	if ($baixados >= bytes)
+    	{
+    		$this->$dados .= substr($dado, $this->$comecarEm, bytes - strlen($this->$dados));
+    		
+    		return $this->$dados;
+    		
+    	} else
+        {
+        	$this->$dados .= $dado;
+        	
+        	return $dado;
+        }
+    }
+
 }
