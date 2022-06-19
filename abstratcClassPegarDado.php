@@ -2,7 +2,7 @@
 
 abstract class PegarDado implements pegarDados
 {
-	protected $url= null,
+	private $url= null,
 	//Mantem o ponto inial pra comecar a limitar o diwnload dos dados.
 	$comecaEm= 0,
 	//Mantém o limite final pra o download do arquivo.
