@@ -8,7 +8,7 @@ abstract class PegarDado implements pegarDados
 	//Mantém o limite final pra o download do arquivo.
 	$ate= null;
 	
-	private const padrao= '/(https|http)://{1}w{3}\.{1}[a-z0-9]+\.{1}[a-z]{2,3}\.{0,1}[a-z]{0,2}/';
+	private const padrao= '/^htt(ps|p)://w{3}[0-9]{0,8}\.[a-z0-9]+(:[0-9]{2,8})?\.[a-z]{2,3}(\.[a-z]{0,2})?(\/[a-z0-9]+\.[a-z]{2,8})?/';
 	
 	private static $criarRecurso= null;
 
