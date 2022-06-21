@@ -8,7 +8,7 @@ abstract class PegarDado implements pegarDados
 	//Mantém o limite final pra o download do arquivo.
 	$ate= 0,
         //Valor inicial pra os dados baixados
-        $dados= 0;
+        $dados= '';
 
         //Limite de dados a serem baixados
         private const bytes= 1000;
@@ -24,7 +24,7 @@ abstract class PegarDado implements pegarDados
     		//Por enquanto sem usar as exceptions.
     		echo 'Obrigatorio informar a URL';
     		
-    	} else if (preg_match_all(padrao, $url))
+    	} else if (preg_match_all(PegarDado::padrao, $url))
         {
         	$this->url= $url;
         	
