@@ -50,7 +50,7 @@ abstract class PegarDado implements pegarDados
     {
     	$baixados= strlen($this->$dados) + ($dado);
     	
-    	if ($baixados >= bytes)
+    	if ($baixados >= PegarDado::bytes)
     	{
     		$this->$dados .= substr($dado, $this->$comecarEm, bytes - strlen($this->$dados));
     		
