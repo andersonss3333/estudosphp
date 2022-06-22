@@ -15,7 +15,7 @@ abstract class PegarDado implements pegarDados
 	
 	private const padrao= '/^htt(ps|p)://w{3}[0-9]{0,8}\.[a-z0-9]+(:[0-9]{2,8})?\.[a-z]{2,3}(\.[a-z]{0,2})?(\/[a-z0-9]+\.[a-z]{2,8})?/';
 	
-	private static $criarRecurso= null;
+	private $criarRecurso= null;
 
         function __construct (string $url)
         {
@@ -24,7 +24,7 @@ abstract class PegarDado implements pegarDados
     		//Por enquanto sem usar as exceptions.
     		echo 'Obrigatorio informar a URL';
     		
-    	} else if (preg_match_all(PegarDado::padrao, $url))
+    	} else if (preg_match_all(self::padrao, $url))
         {
         	$this->url= $url;
         	
@@ -39,7 +39,7 @@ abstract class PegarDado implements pegarDados
     	$this->criarRecurso= curl_init($this->url);
     	curl_setopt($this->criarRecurso, CURLOPT_BUFFERSIZE, 256);
     	curl_setopt($this->criarRecurso, CURLOPT_SSL_VERIFYHOST, false);
-    	curl_setopt($this->criarRecurso, CURLOPT_WRITEFUNCTION, $this->baixar);
+    	curl_setopt($this->criarRecurso, CURLOPT_WRITEFUNCTION, self::baixar);
     	curl_setopt($this->criarRecurso, CURLOPT_RETURNTRANSFER, true);
     	
     	return $this->baixar('','');
@@ -50,9 +50,9 @@ abstract class PegarDado implements pegarDados
     {
     	$baixados= strlen($this->$dados) + ($dado);
     	
-    	if ($baixados >= PegarDado::bytes)
+    	if ($baixados >= self::bytes)
     	{
-    		$this->$dados .= substr($dado, $this->$comecarEm, bytes - strlen($this->$dados));
+    		$this->$dados .= substr($dado, $this->$comecarEm, self::bytes - strlen($this->$dados));
     		
     		return $this->$dados;
     		
