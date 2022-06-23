@@ -73,12 +73,3 @@ abstract class PegarDado implements pegarDados
     	return $baixarDados;
     }
 }
-
-class BuscarDados extends PegarDado
-{
-	public final function buscarDados (): string
-    {
-    	return obterDados($url);
-    }
-
-}
