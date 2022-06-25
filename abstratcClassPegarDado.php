@@ -49,29 +49,27 @@ abstract class PegarDado implements pegarDados
 
         $b= $baixar('', '');
 
-        curl_close($this->criarRecurso);
-
     	return $b;
     	
     }
     
     private function baixar (): closure
     {
-    	$dados= $this->dados;
+    	$dadosB= $this->dados;
     	
-    	$baixarDados= function ($curl, string $dado) use ($dados)
+    	$baixarDados= function ($curl, $dado) use ($dadosB)
     	{
-    		$baixados= strlen($dados) + strlen($dado);
+    		$baixados= strlen($dadosB) + strlen($dado);
     	
     	if ($baixados >= self::bytes)
     	{
-    		$dados .= substr($dado, $this->$comecarEm, self::bytes - strlen($dados));
+    		$dadosB .= substr($dado, $this->comecarEm, self::bytes - strlen($dadosB));
     		
-    		return $dados;
+    		return $dadosB;
     		
     	} else
         {
-        	 $dados .= $dado;
+        	 $dadosB .= $dado;
         	
         	return $dado;
         }
