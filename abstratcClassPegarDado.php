@@ -13,7 +13,7 @@ abstract class PegarDado implements pegarDados
         //Limite de dados a serem baixados
         private const bytes= 1000;
 	
-	private const padrao= '/^htt(ps|p)://w{3}[0-9]{0,8}\.[a-z0-9]+(:[0-9]{2,8})?\.[a-z]{2,3}(\.[a-z]{0,2})?(\/[a-z0-9]+\.[a-z]{2,8})?/';
+	private const padrao= '/^htt(ps|p)://((www)?[0-9]{0,6}\.)?[a-z0-9]+(:[0-9]{2,8})?\.[a-z]{2,3}(\.[a-z]{0,2})?(\/[a-z0-9]+\.[a-z]{2,8})?/';
 	
 	private $criarRecurso= null;
 
