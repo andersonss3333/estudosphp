@@ -39,18 +39,22 @@ abstract class PegarDado implements pegarDados
     {
         $baixar= $this->baixar();
         
+
+    	curl_setopt($this->criarRecurso, CURLOPT_URL, $this->url);
+
     	curl_setopt($this->criarRecurso, CURLOPT_BUFFERSIZE, 256);
     	curl_setopt($this->criarRecurso, CURLOPT_SSL_VERIFYHOST, FALSE);
     	curl_setopt($this->criarRecurso, CURLOPT_WRITEFUNCTION, $baixar);
     	curl_setopt($this->criarRecurso, CURLOPT_RETURNTRANSFER, 1);
     	
-        curl_exec($this->criarRecurso);
+
+        curl_exec($this->criar recurso);
 
         $b= $baixar('', '');
 
-    	curl_close($this->criarRecurso);
-    
-        return $b;
+        curl_close($this->criar recurso);
+
+    	return $b;
 
     	
     }
