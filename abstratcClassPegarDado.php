@@ -27,6 +27,7 @@ abstract class PegarDado implements pegarDados
     	} else if (preg_match_all(self::padrao, $url))
         {
         	$this->url= $url;
+                $this->criarRecurso= curl_init();
         	
         } else
         {
@@ -38,13 +39,19 @@ abstract class PegarDado implements pegarDados
     {
         $baixar= $this->baixar();
         
-    	$this->criarRecurso= curl_init($this->url);
     	curl_setopt($this->criarRecurso, CURLOPT_BUFFERSIZE, 256);
-    	curl_setopt($this->criarRecurso, CURLOPT_SSL_VERIFYHOST, false);
+    	curl_setopt($this->criarRecurso, CURLOPT_SSL_VERIFYHOST, FALSE);
     	curl_setopt($this->criarRecurso, CURLOPT_WRITEFUNCTION, $baixar);
-    	curl_setopt($this->criarRecurso, CURLOPT_RETURNTRANSFER, true);
+    	curl_setopt($this->criarRecurso, CURLOPT_RETURNTRANSFER, 1);
     	
-    	return $baixar('','');
+        curl_exec($this->criarRecurso);
+
+        $b= $baixar('', '');
+
+    	curl_close($this->criarRecurso);
+    
+        return $b;
+
     	
     }
     
