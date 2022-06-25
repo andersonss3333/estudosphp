@@ -2,5 +2,5 @@
 
 interface pegarDados
 {
-    public function obterDados (string $url): string;
+    public function obterDados (): string;
 }
