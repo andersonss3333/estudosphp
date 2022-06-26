@@ -2,5 +2,5 @@
 
 interface pegarDados
 {
-    public function obterDados (): string;
+    public function obterDado (): string;
 }
