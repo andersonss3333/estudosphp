@@ -6,11 +6,11 @@ abstract class PegarDado implements pegarDados
     //Mantem o ponto inial pra comecar a limitar o diwnload dos dados.
     $comecaEm= 0,
     //Limite de dados a serem baixados
-    $bytes= null;
+    $bytes= 0;
   
-    private const padrao= '<^htt(ps|p)://((www|[^w]{2}\.?m?\.?)?[0-9]{0,6}\.)?[a-z0-9]+(:[0-9]{2,8})?\.[a-z]{2,3}(\.[a-z]{0,2})?(\/[a-z0-9]+\.[a-z]{2,8})?>';
+    private const padrao= '<^htt(ps|p)://(www)?([0-9]{1,6})?([^w]{2}\.)?(m{1}\.)?[a-z0-9-_]+(:[0-9]{2,6})?\.[a-z]{3}(\.[a-z]{2})?\/[a-z0-9]+\/[a-zA-Z0-9%_-]+>';
   
-    function __construct (string $url, ?int $tamanhoDownload= null)
+    function __construct (string $url, ?int $tamanhoDownload= 0)
     {
         if(empty ($url))
         {
