@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types);
+
 abstract class PegarDado implements pegarDados
 {
     private $url= '',
