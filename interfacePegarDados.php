@@ -1,6 +1,8 @@
 <?php
 
+declare(strict_types= 1);
+
 interface pegarDados
 {
-    public function obterDados (): string;
+    public function obterDado (): string;
 }
