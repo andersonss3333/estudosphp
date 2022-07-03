@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 use estrutura\PegarDados;
 
-abstract class PegarDado implements PegarDados
+abstract class PegarDado
 {
     private $url= '',
     //Mantem o ponto inial pra comecar a limitar o diwnload dos dados.
