@@ -6,7 +6,9 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-abstract class PegarDado implements pegarDados
+use estrutura\PegarDados;
+
+abstract class PegarDado implements PegarDados
 {
     private $url= '',
     //Mantem o ponto inial pra comecar a limitar o diwnload dos dados.
