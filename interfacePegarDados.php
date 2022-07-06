@@ -10,5 +10,5 @@ error_reporting(E_ALL);
 
 interface PegarDados
 {
-    public function obterDado (): string;
+    public function obterDado(): string;
 }
